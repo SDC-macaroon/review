@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+  font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 0.8em;
+  font-weight: 400;
+}
