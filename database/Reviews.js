@@ -4,7 +4,6 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const reviewSchema = new mongoose.Schema({
-  productID: Number,
   rating: Number,
   reviewTitle: String,
   reviewBody: String,
@@ -12,6 +11,11 @@ const reviewSchema = new mongoose.Schema({
   reviewDate: String,
 });
 
-const Review = mongoose.model('Review', reviewSchema);
+const productSchema = new mongoose.Schema({
+  productID: Number,
+  reviews: [reviewSchema],
+});
+
+const Review = mongoose.model('Review', productSchema);
 
 module.exports = Review;
