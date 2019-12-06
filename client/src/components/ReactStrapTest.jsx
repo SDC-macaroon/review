@@ -1,12 +1,17 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disables */
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import moment from "moment";
+import {
+  Button, Modal, ModalHeader, ModalBody, ModalFooter,
+} from 'reactstrap';
 
-const ReactStrapTest = (props) => {
+const ReactStrapTest = props => {
   const {
     buttonLabel,
-    className
+    className,
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -14,22 +19,37 @@ const ReactStrapTest = (props) => {
   const toggle = () => setModal(!modal);
 
   const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={toggle}>&times;</button>;
+  const { reviews } = props;
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <div className="reviewButton" onClick={toggle}>Read All Reviews</div>
       <Modal isOpen={modal} toggle={toggle} className={className} external={externalCloseBtn}>
-        <ModalHeader>Reviews</ModalHeader>
+        <ModalHeader className="reviewsModalTitle">Reviews</ModalHeader>
         <ModalBody>
-          <b>Look at the top right of the page/viewport!</b><br />
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <br />
+          {reviews.map(review => (
+            <div key={review._id}>
+              <div className="rating">Rating: {review.rating}</div>
+              <div className="reviewTitle">{review.reviewTitle.charAt(0).toUpperCase() + review.reviewTitle.slice(1)}</div>
+              <div className="reviewAuthor">by {review.reviewAuthor} on {moment(review.reviewDate).format('LL')}</div>
+              <br />
+              <div className="reviewBody">
+                { review.reviewBody }
+                <br />
+                <br />
+              </div>
+            </div>
+          ))}
+
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
+          <Button color="primary" onClick={toggle}>Do Something</Button>
+          {' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>
   );
-}
+};
 
 export default ReactStrapTest;

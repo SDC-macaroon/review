@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(`${__dirname}/../client/dist`));
+app.use('/product/:productID', express.static(`${__dirname}/../client/dist`));
 
 app.get('/reviews/:productID', async (req, res) => {
   const productIdArray = await fetch(req.params.productID);
