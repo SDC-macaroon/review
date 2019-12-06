@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const { fetch } = require('../database/Reviews.js');
 
 const app = express();
 
@@ -8,8 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(`${__dirname}/../client/dist`));
 
-app.get('/reviews/:productID', (req, res) => {
-
+app.get('/reviews/:productID', async (req, res) => {
+  const productIdArray = await fetch(req.params.productID);
+  res.status(200).send(productIdArray[0].reviews);
 });
 
 
