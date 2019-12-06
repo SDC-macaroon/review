@@ -7,8 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      // eslint-disable-next-line react/no-unused-state
-      test: [],
+
     };
   }
 
