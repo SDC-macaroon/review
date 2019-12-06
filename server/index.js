@@ -8,6 +8,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(`${__dirname}/../client/dist`));
 
+app.get('/reviews/:productID', (req, res) => {
+
+});
+
 
 const port = process.env.PORT || 3000;
 
