@@ -6,6 +6,7 @@ import './styles.css';
 import faker from 'faker';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactStrapTest from './components/ReactStrapTest.jsx';
+import Features from './components/Features.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,8 +30,21 @@ class App extends React.Component {
   render() {
     const { reviews } = this.state;
     return (
-      <div>
-        <ReactStrapTest reviews={reviews} />
+      <div className="reviewsContainer">
+        <div className="features">
+          <Features />
+        </div>
+        <div className="reviewsChartContainer">
+          <div className="reviewsChart">
+            Reviews
+            {' '}
+            <br />
+            {' '}
+            <img src="./chart.png" alt="a chart" />
+          </div>
+
+          <ReactStrapTest className="readAllReviews" reviews={reviews} />
+        </div>
       </div>
     );
   }

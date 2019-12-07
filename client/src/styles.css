@@ -1,55 +1,96 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 body {
-  font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
-  font-size: 0.8em;
+  font-family: Montserrat;
+}
+
+html * {
+  font-family: Montserrat;
+}
+
+.reviewsModalTitle {
+  text-align: center;
+  border-bottom: none;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.reviewTitle {
+  color: #40354e;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.reviewBody {
+  color: #40354e;
+  font-size: 16px;
   font-weight: 400;
+  padding: 20px 5px 30px 0px;
+}
+
+.reviewAuthor {
+  color: rgb(140, 149, 165);
 }
 
 .reviewButton {
-background-attachment:scroll;
-background-clip:border-box;
-background-color:rgba(0, 0, 0, 0);
-background-image:none;
-background-origin:padding-box;
-background-position-x:0%;
-background-position-y:0%;
-background-size:auto;
-border-bottom-color:rgb(64, 53, 78);
-border-bottom-style:none;
-border-bottom-width:0px;
-border-image-outset:0px;
-border-image-repeat:stretch;
-border-image-slice:100%;
-border-image-source:none;
-border-image-width:1;
-border-left-color:rgb(64, 53, 78);
-border-left-style:none;
-border-left-width:0px;
-border-right-color:rgb(64, 53, 78);
-border-right-style:none;
-border-right-width:0px;
-border-top-color:rgb(242, 242, 246);
-border-top-style:solid;
-border-top-width:1px;
-box-sizing:border-box;
-color:rgb(64, 53, 78);
+/* border: solid black 1px; */
+width: 400px;
+color: #40354e;
 cursor:pointer;
 display:block;
-font-family:Montserrat, -apple-system, "Helvetica Neue", sans-serif;
+font-family:Montserrat;
 font-size:16px;
-font-weight:600;
-height:43px;
-line-height:26px;
-margin-bottom:0px;
-margin-left:0px;
-margin-right:0px;
-margin-top:0px;
 padding-top:16px;
 text-align:left;
-text-decoration-color:rgb(64, 53, 78);
-text-decoration-line:none;
-text-decoration-style:solid;
-text-size-adjust:100%;
-width:270.5px;
+font-style: normal;
+text-decoration-style: solid;
+font-weight:900;
+float: left;
+}
+
+.reviewButton:active {
+  border: solid #7BA4F9 3px;
+}
+
+.features {
+/* border: solid black 1px; */
+height: 300px;
+width: 670px;
+float: left;
+padding: 20px 30px 0px 0px;
+color: rgb(64, 53, 78);
+font-weight: 400;
+}
+
+.reviewsChartContainer {
+  /* border: solid black 1px; */
+  padding-top: 20px;
+  margin-left: 32px;
+  padding-left: 32px;
+  border-left: 1px solid #f2f2f6;
+  width: 800px;
+  height: 300px;
+  float: left;
+}
+
+.reviewsChart {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f2f2f6;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+li{
+  margin-top: 10px;
+}
+
+li:first-child {
+  margin-top:0;
+}
+
+.featuresTitle {
+  padding: 10px 10px 15px 15px;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 20px;
 }

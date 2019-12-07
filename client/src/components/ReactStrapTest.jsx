@@ -1,16 +1,21 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disables */
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
 import React, { useState } from 'react';
-import moment from "moment";
+import StarRatingComponent from 'react-star-rating-component';
+import moment from 'moment';
+import '../styles.css';
 import {
-  Button, Modal, ModalHeader, ModalBody, ModalFooter,
+  Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 
 const ReactStrapTest = props => {
   const {
-    buttonLabel,
     className,
   } = props;
 
@@ -22,31 +27,23 @@ const ReactStrapTest = props => {
   const { reviews } = props;
   return (
     <div>
-      <div className="reviewButton" onClick={toggle}>Read All Reviews</div>
+      <div className="reviewButton" onClick={toggle}>+ Read All {reviews.length} Reviews</div>
       <Modal isOpen={modal} toggle={toggle} className={className} external={externalCloseBtn}>
-        <ModalHeader className="reviewsModalTitle">Reviews</ModalHeader>
+        {/* <ModalHeader className="reviewsModalTitle">Reviews</ModalHeader> */}
         <ModalBody>
-          <br />
+          <div className="reviewsModalTitle">Reviews</div>
           {reviews.map(review => (
             <div key={review._id}>
-              <div className="rating">Rating: {review.rating}</div>
+              <StarRatingComponent className="stars" name="rate1" starCount={review.rating} editing={false} value={5} />
               <div className="reviewTitle">{review.reviewTitle.charAt(0).toUpperCase() + review.reviewTitle.slice(1)}</div>
               <div className="reviewAuthor">by {review.reviewAuthor} on {moment(review.reviewDate).format('LL')}</div>
-              <br />
               <div className="reviewBody">
                 { review.reviewBody }
-                <br />
-                <br />
               </div>
             </div>
           ))}
 
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>
-          {' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
       </Modal>
     </div>
   );
