@@ -1,9 +1,8 @@
-/* eslint-disable react/no-unused-state */
-/* eslint-disable */
+/* eslint-disable import/extensions */
+/* eslint-disable class-methods-use-this */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import faker from 'faker';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactStrapTest from './components/ReactStrapTest.jsx';
 import ReviewSummary from './components/ReviewSummary.jsx';
@@ -32,8 +31,8 @@ class App extends React.Component {
     const ratingCount = Array(5).fill(0);
     reviews.forEach(review => {
       ratingCount[review.rating - 1]++;
-    })
-    return ratingCount.map( rating =>  rating/reviews.length * 100)
+    });
+    return ratingCount.map(rating => rating / (reviews.length * 100));
   }
 
   render() {
@@ -44,13 +43,6 @@ class App extends React.Component {
           <Features />
         </div>
         <div className="reviewsChartContainer">
-          {/* <div className="reviewsChart">
-            Reviews
-            {' '}
-            <br />
-            {' '}
-            <img src="./chart.png" alt="a chart" />
-          </div> */}
           <ReviewSummary percentages={this.reviewPercentages(reviews)} />
           <ReactStrapTest className="readAllReviews" reviews={reviews} />
         </div>

@@ -1,4 +1,8 @@
-/* eslint-disable  */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import moment from 'moment';
@@ -16,7 +20,7 @@ const ReactStrapTest = props => {
 
   const toggle = () => setModal(!modal);
 
-  const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={toggle}>&times;</button>;
+  const externalCloseBtn = <button className="close" type="button" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={toggle}>&times;</button>;
   const { reviews } = props;
   return (
     <div>
@@ -41,8 +45,8 @@ const ReactStrapTest = props => {
                 value={5}
               />
               <div className="reviewTitle">
-                {review.reviewTitle.charAt(0).toUpperCase() +
-                  review.reviewTitle.slice(1)}
+                {review.reviewTitle.charAt(0).toUpperCase()
+                + review.reviewTitle.slice(1)}
               </div>
               <div className="reviewAuthor">
                 by {review.reviewAuthor} on{' '}
