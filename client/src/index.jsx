@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import ReactStrapTest from './components/ReactStrapTest.jsx';
+import ReviewModal from './components/ReviewModal.jsx';
 import ReviewSummary from './components/ReviewSummary.jsx';
 import Features from './components/Features.jsx';
 
@@ -44,7 +44,7 @@ class App extends React.Component {
         </div>
         <div className="reviewsChartContainer">
           <ReviewSummary percentages={this.reviewPercentages(reviews)} />
-          <ReactStrapTest className="readAllReviews" reviews={reviews} />
+          <ReviewModal className="readAllReviews" reviews={reviews} />
         </div>
       </div>
     );
