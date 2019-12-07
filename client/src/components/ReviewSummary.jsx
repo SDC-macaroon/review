@@ -10,6 +10,7 @@ const ReviewSummary = ({ percentages }) => {
       <div>Reviews</div>
       <div className="summaryInnerBox">
         {percentages.map((percentage, i) => {
+          console.log(percentage)
           return (
             <div className="summaryLine">
               <div className="summaryStars">

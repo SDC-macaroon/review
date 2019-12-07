@@ -13,6 +13,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
+        exclude: /node_modules/,
         include: SRC_DIR,
         loader: 'babel-loader',
         query: {
