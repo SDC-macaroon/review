@@ -12,14 +12,13 @@ const reviewSchema = new mongoose.Schema({
 });
 
 const productSchema = new mongoose.Schema({
-  productID: Number,
+  productID: { type: Number, unique: true },
   reviews: [reviewSchema],
 });
 
 const productModel = mongoose.model('Product', productSchema);
 
 const fetch = prodId => productModel.find({ productID: prodId }).exec();
-
 
 module.exports.reviewModel = mongoose.model('Review', reviewSchema);
 module.exports.productModel = productModel;
