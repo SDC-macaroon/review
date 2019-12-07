@@ -16,5 +16,11 @@ const productSchema = new mongoose.Schema({
   reviews: [reviewSchema],
 });
 
+const productModel = mongoose.model('Product', productSchema);
+
+const fetch = prodId => productModel.find({ productID: prodId }).exec();
+
+
 module.exports.reviewModel = mongoose.model('Review', reviewSchema);
-module.exports.productModel = mongoose.model('Product', productSchema);
+module.exports.productModel = productModel;
+module.exports.fetch = fetch;
