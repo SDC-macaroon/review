@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
 body {
   font-family: Montserrat;
@@ -12,7 +12,7 @@ html * {
   text-align: center;
   border-bottom: none;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .reviewTitle {
@@ -77,7 +77,7 @@ font-weight: 400;
   padding-bottom: 15px;
   border-bottom: 1px solid #f2f2f6;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 li{
@@ -91,6 +91,53 @@ li:first-child {
 .featuresTitle {
   padding: 10px 10px 15px 15px;
   margin-top: 20px;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 20px;
+}
+
+.reviewsContainer {
+  display: flex;
+  width: 1500px;
+  /* border: solid black 1px; */
+}
+
+.summaryOuterBox {
+  display: block;
+}
+
+.summaryInnerBox {
+  display: block;
+}
+
+.summaryLine {
+  display: flex;
+  align-items: center;
+}
+
+.summaryStars {
+  display: flex;
+}
+
+.summaryHistogram {
+  display: block;
+  margin-left: 16px;
+  line-height: 13px;
+  padding-bottom: 7px;
+}
+
+.line {
+  height: 4px;
+  width: 125px;
+}
+
+.dv-star-rating-star {
+  /* margin: 0; */
+  margin-right: 2px;
+  margin-bottom: 0px;
+}
+
+.aStar {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
 }

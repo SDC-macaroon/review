@@ -10,7 +10,8 @@
     "start": "nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "db:setup": "node database/seed.js",
-    "build": "webpack -d"
+    "build": "webpack -d",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -20,6 +21,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.7.13",
     "nodemon": "^2.0.1",
+    "rc-progress": "^2.5.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-star-rating-component": "^1.4.1",
