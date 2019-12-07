@@ -10,9 +10,10 @@ const ReviewSummary = ({ percentages }) => {
       <div className="summaryInnerBox">
         {percentages.map((percentage, i) => {
           return (
-            <div className="summaryLine">
+            <div key={i} className="summaryLine">
               <div className="summaryStars">
                 <StarRatingComponent
+                  name="reviewSummaryStars"
                   editing={false}
                   starCount={5}
                   value={5 - i}
