@@ -4,13 +4,11 @@ import StarRatingComponent from 'react-star-rating-component';
 import { Line } from 'rc-progress';
 
 const ReviewSummary = ({ percentages }) => {
-  console.log(percentages);
   return (
     <div className="summaryOuterBox">
       <div>Reviews</div>
       <div className="summaryInnerBox">
         {percentages.map((percentage, i) => {
-          console.log(percentage)
           return (
             <div className="summaryLine">
               <div className="summaryStars">
