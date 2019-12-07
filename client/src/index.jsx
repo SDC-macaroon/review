@@ -32,7 +32,7 @@ class App extends React.Component {
     reviews.forEach(review => {
       ratingCount[review.rating - 1]++;
     });
-    return ratingCount.map(rating => rating / (reviews.length * 100));
+    return ratingCount.map(rating => (rating / reviews.length) * 100);
   }
 
   render() {
