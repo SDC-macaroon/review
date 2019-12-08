@@ -11,7 +11,7 @@ import {
   Modal, ModalBody,
 } from 'reactstrap';
 
-const ReactStrapTest = props => {
+const ReviewModal = props => {
   const {
     className,
   } = props;
@@ -65,4 +65,4 @@ const ReactStrapTest = props => {
   );
 };
 
-export default ReactStrapTest;
+export default ReviewModal;
