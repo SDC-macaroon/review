@@ -17,7 +17,7 @@ html * {
 
 .reviewTitle {
   color: #40354e;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -33,18 +33,18 @@ html * {
 }
 
 .reviewButton {
-/* border: solid black 1px; */
+border-top: solid #F2F2F6 1px;
 width: 400px;
 color: #40354e;
 cursor:pointer;
 display:block;
 font-family:Montserrat;
 font-size:16px;
-padding-top:16px;
+padding-top:20px;
 text-align:left;
 font-style: normal;
 text-decoration-style: solid;
-font-weight:900;
+font-weight:600;
 float: left;
 }
 
@@ -60,6 +60,7 @@ float: left;
 padding: 20px 30px 0px 0px;
 color: rgb(64, 53, 78);
 font-weight: 400;
+word-wrap: normal;
 }
 
 .reviewsChartContainer {
@@ -107,6 +108,7 @@ li:first-child {
 
 .summaryInnerBox {
   display: block;
+  padding-bottom: 20px;
 }
 
 .summaryLine {
@@ -140,4 +142,9 @@ li:first-child {
   height: 16px;
   width: 16px;
   display: inline-block;
+}
+
+.reviewSummaryTitle {
+  font-weight: 600;
+  font-size: 20px;
 }

@@ -6,7 +6,7 @@ import { Line } from 'rc-progress';
 const ReviewSummary = ({ percentages }) => {
   return (
     <div className="summaryOuterBox">
-      <div>Reviews</div>
+      <div className="reviewSummaryTitle">Reviews</div>
       <div className="summaryInnerBox">
         {percentages.map((percentage, i) => {
           return (
