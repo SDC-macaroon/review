@@ -9,7 +9,7 @@ import DropDown from './DropDown.jsx'
 import moment from 'moment';
 import '../styles.css';
 import {
-  Modal, ModalBody, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
+  Modal, ModalBody,
 } from 'reactstrap';
 
 const ReviewModal = props => {
