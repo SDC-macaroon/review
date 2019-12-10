@@ -5,10 +5,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import DropDown from './DropDown.jsx'
 import moment from 'moment';
 import '../styles.css';
 import {
-  Modal, ModalBody,
+  Modal, ModalBody, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
 } from 'reactstrap';
 
 const ReviewModal = props => {
@@ -17,8 +18,12 @@ const ReviewModal = props => {
   } = props;
 
   const [modal, setModal] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
 
   const toggle = () => setModal(!modal);
+  const toggleDropDown = () => setDropdownOpen(prevState => !prevState);
+
 
   const externalCloseBtn = <button className="close" type="button" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={toggle}>&times;</button>;
   const { reviews } = props;
@@ -34,6 +39,9 @@ const ReviewModal = props => {
         external={externalCloseBtn}
       >
         <ModalBody>
+          <div className="dropDown">
+          <DropDown sortReviews={props.sortReviews}/>
+          </div>
           <div className="reviewsModalTitle">Reviews</div>
           {reviews.map(review => (
             <div key={review._id}>

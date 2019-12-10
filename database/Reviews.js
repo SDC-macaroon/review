@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema({
   reviewTitle: String,
   reviewBody: String,
   reviewAuthor: String,
-  reviewDate: String,
+  reviewDate: Date,
 });
 
 const productSchema = new mongoose.Schema({
