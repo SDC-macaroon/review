@@ -5,10 +5,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import DropDown from './DropDown.jsx';
 import moment from 'moment';
 import '../styles.css';
 import { Modal, ModalBody } from 'reactstrap';
+import DropDown from './DropDown.jsx';
 
 const ReviewModal = props => {
   const { className } = props;
@@ -54,8 +54,8 @@ const ReviewModal = props => {
                 value={5}
               />
               <div className="reviewTitle">
-                {review.reviewTitle.charAt(0).toUpperCase() +
-                  review.reviewTitle.slice(1)}
+                {review.reviewTitle.charAt(0).toUpperCase()
+                  + review.reviewTitle.slice(1)}
               </div>
               <div className="reviewAuthor">
                 by {review.reviewAuthor} on{' '}
