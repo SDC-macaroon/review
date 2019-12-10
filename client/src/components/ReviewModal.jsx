@@ -5,27 +5,28 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import DropDown from './DropDown.jsx'
+import DropDown from './DropDown.jsx';
 import moment from 'moment';
 import '../styles.css';
-import {
-  Modal, ModalBody,
-} from 'reactstrap';
+import { Modal, ModalBody } from 'reactstrap';
 
 const ReviewModal = props => {
-  const {
-    className,
-  } = props;
+  const { className } = props;
 
   const [modal, setModal] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
 
   const toggle = () => setModal(!modal);
-  const toggleDropDown = () => setDropdownOpen(prevState => !prevState);
 
-
-  const externalCloseBtn = <button className="close" type="button" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={toggle}>&times;</button>;
+  const externalCloseBtn = (
+    <button
+      className="close"
+      type="button"
+      style={{ position: 'absolute', top: '15px', right: '15px' }}
+      onClick={toggle}
+    >
+      &times;
+    </button>
+  );
   const { reviews } = props;
   return (
     <div>
@@ -40,7 +41,7 @@ const ReviewModal = props => {
       >
         <ModalBody>
           <div className="dropDown">
-          <DropDown sortReviews={props.sortReviews}/>
+            <DropDown sortReviews={props.sortReviews} />
           </div>
           <div className="reviewsModalTitle">Reviews</div>
           {reviews.map(review => (
@@ -53,8 +54,8 @@ const ReviewModal = props => {
                 value={5}
               />
               <div className="reviewTitle">
-                {review.reviewTitle.charAt(0).toUpperCase()
-                + review.reviewTitle.slice(1)}
+                {review.reviewTitle.charAt(0).toUpperCase() +
+                  review.reviewTitle.slice(1)}
               </div>
               <div className="reviewAuthor">
                 by {review.reviewAuthor} on{' '}
