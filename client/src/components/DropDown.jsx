@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Dropdown,
   DropdownToggle,
@@ -31,6 +32,10 @@ const DropDown = props => {
       </DropdownMenu>
     </Dropdown>
   );
+};
+
+Dropdown.propTypes = {
+  sortReviews: PropTypes.func,
 };
 
 export default DropDown;
