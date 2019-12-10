@@ -2,6 +2,7 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReviewModal from './components/ReviewModal.jsx';
@@ -14,6 +15,7 @@ class App extends React.Component {
     this.state = {
       reviews: [],
     };
+    this.sortReviews = this.sortReviews.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +26,7 @@ class App extends React.Component {
     const productId = window.location.pathname.split('/')[2];
     const response = await fetch(`/reviews/${productId}`);
     const myJson = await response.json();
-    this.setState({ reviews: myJson });
+    this.setState({ reviews: _.orderBy(myJson, ['reviewDate'], ['desc']) });
   }
 
   reviewPercentages(reviews) {
@@ -33,6 +35,13 @@ class App extends React.Component {
       ratingCount[review.rating - 1]++;
     });
     return ratingCount.map(rating => (rating / reviews.length) * 100);
+  }
+
+  sortReviews(e) {
+    const { reviews } = this.state;
+    const sort = _.orderBy(reviews, [e.target.attributes[1].value], [e.target.attributes[2].value]);
+    e.stopPropagation();
+    this.setState({ reviews: sort });
   }
 
   render() {
@@ -44,7 +53,11 @@ class App extends React.Component {
         </div>
         <div className="reviewsChartContainer">
           <ReviewSummary percentages={this.reviewPercentages(reviews)} />
-          <ReviewModal className="readAllReviews" reviews={reviews} />
+          <ReviewModal
+            className="readAllReviews"
+            reviews={reviews}
+            sortReviews={this.sortReviews}
+          />
         </div>
       </div>
     );

@@ -9,7 +9,7 @@ mongoose.connection.collections.products.drop();
 (async () => {
   for (let productID = 2001; productID <= 2100; productID++) {
     const product = new productModel({ productID, reviews: [] });
-    const reviewCount = Math.floor(Math.random() * 30) + 1;
+    const reviewCount = Math.floor(Math.random() * 80) + 10;
 
     for (let i = 0; i < reviewCount; i++) {
       const review = new reviewModel({

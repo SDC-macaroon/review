@@ -148,3 +148,8 @@ li:first-child {
   font-weight: 600;
   font-size: 20px;
 }
+
+.dropDown {
+  display: flex;
+  justify-content: flex-end;
+}
