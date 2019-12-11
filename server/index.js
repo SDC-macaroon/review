@@ -9,6 +9,6 @@ app.get('/reviews/:productID', async (req, res) => {
   const productIdArray = await fetch(req.params.productID);
   res.status(200).send(productIdArray[0].reviews);
 });
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
