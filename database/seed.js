@@ -2,9 +2,16 @@
 /* eslint-disable new-cap */
 const faker = require('faker');
 const mongoose = require('mongoose');
+const db = require('./index.js');
 const { productModel, reviewModel } = require('./Reviews.js');
 
-mongoose.connection.collections.products.drop();
+// db.then(res => console.log(res.connections[0].collections));
+console.log(db);
+try {
+  mongoose.connection.collections.products.drop();
+} catch (error) {
+  console.log('database doesnt exist yet');
+}
 
 (async () => {
   for (let productID = 2001; productID <= 2100; productID++) {
