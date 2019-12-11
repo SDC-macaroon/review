@@ -4,11 +4,7 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 const { productModel, reviewModel } = require('./Reviews.js');
 
-try {
-  mongoose.connection.collections.products.drop();
-} catch (error) {
-  console.log('database doesnt exist yet');
-}
+mongoose.connection.collections.products.drop().catch(() => 1 + 1);
 
 (async () => {
   for (let productID = 2001; productID <= 2100; productID++) {
