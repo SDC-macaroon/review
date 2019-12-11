@@ -5,13 +5,7 @@ const mongoose = require('mongoose');
 const db = require('./index.js');
 const { productModel, reviewModel } = require('./Reviews.js');
 
-// db.then(res => console.log(res.connections[0].collections));
-console.log(db);
-try {
-  mongoose.connection.collections.products.drop();
-} catch (error) {
-  console.log('database doesnt exist yet');
-}
+mongoose.connection.collections.products.drop().catch(() => 1 + 1);
 
 (async () => {
   for (let productID = 2001; productID <= 2100; productID++) {
