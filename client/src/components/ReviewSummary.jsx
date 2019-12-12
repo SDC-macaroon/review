@@ -14,6 +14,7 @@ const ReviewSummary = ({ percentages }) => {
               <div className="summaryStars">
                 <StarRatingComponent
                   name="reviewSummaryStars"
+                  id={i}
                   editing={false}
                   starCount={5}
                   value={5 - i}
@@ -26,6 +27,7 @@ const ReviewSummary = ({ percentages }) => {
               <div className="summaryHistogram">
                 <Line
                   className="line"
+                  name={i}
                   percent={percentage}
                   strokeWidth="4"
                   trailWidth="4"

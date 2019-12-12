@@ -32,7 +32,7 @@ class App extends React.Component {
   reviewPercentages(reviews) {
     const ratingCount = Array(5).fill(0);
     reviews.forEach(review => {
-      ratingCount[review.rating - 1]++;
+      ratingCount[5 - review.rating]++;
     });
     return ratingCount.map(rating => (rating / reviews.length) * 100);
   }
@@ -65,6 +65,3 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-// go to localhost:3000/product/2003
-// server should servea page that says "read all ${no. of reviwews} reviews"
