@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
-body {
-  font-family: Montserrat;
-}
-
-html * {
-  font-family: Montserrat;
-}
 
 .reviewsModalTitle {
+  font-family: Montserrat;
   text-align: center;
   border-bottom: none;
   font-size: 20px;
@@ -16,12 +10,14 @@ html * {
 }
 
 .reviewTitle {
+  font-family: Montserrat;
   color: #40354e;
   font-weight: 600;
   font-size: 16px;
 }
 
 .reviewBody {
+  font-family: Montserrat;
   color: #40354e;
   font-size: 16px;
   font-weight: 400;
@@ -29,10 +25,12 @@ html * {
 }
 
 .reviewAuthor {
+  font-family: Montserrat;
   color: rgb(140, 149, 165);
 }
 
 .reviewButton {
+font-family: Montserrat;
 border-top: solid #F2F2F6 1px;
 width: 400px;
 color: #40354e;
@@ -49,10 +47,12 @@ float: left;
 }
 
 .reviewButton:active {
+  font-family: Montserrat;
   border: solid #7BA4F9 3px;
 }
 
 .features {
+font-family: Montserrat;
 /* border: solid black 1px; */
 height: 300px;
 width: 670px;
@@ -64,6 +64,7 @@ word-wrap: normal;
 }
 
 .reviewsChartContainer {
+  font-family: Montserrat;
   /* border: solid black 1px; */
   padding-top: 20px;
   margin-left: 32px;
@@ -75,6 +76,7 @@ word-wrap: normal;
 }
 
 .reviewsChart {
+  font-family: Montserrat;
   padding-bottom: 15px;
   border-bottom: 1px solid #f2f2f6;
   font-size: 20px;
@@ -82,14 +84,17 @@ word-wrap: normal;
 }
 
 li{
+  font-family: Montserrat;
   margin-top: 10px;
 }
 
 li:first-child {
+  font-family: Montserrat;
   margin-top:0;
 }
 
 .featuresTitle {
+  font-family: Montserrat;
   padding: 10px 10px 15px 15px;
   margin-top: 20px;
   font-weight: 600;
@@ -97,30 +102,36 @@ li:first-child {
 }
 
 .reviewsContainer {
+  font-family: Montserrat;
   display: flex;
   width: 1500px;
   /* border: solid black 1px; */
 }
 
 .summaryOuterBox {
+  font-family: Montserrat;
   display: block;
 }
 
 .summaryInnerBox {
+  font-family: Montserrat;
   display: block;
   padding-bottom: 20px;
 }
 
 .summaryLine {
+  font-family: Montserrat;
   display: flex;
   align-items: center;
 }
 
 .summaryStars {
+  font-family: Montserrat;
   display: flex;
 }
 
 .summaryHistogram {
+  font-family: Montserrat;
   display: block;
   margin-left: 16px;
   line-height: 13px;
@@ -145,11 +156,13 @@ li:first-child {
 }
 
 .reviewSummaryTitle {
+  font-family: Montserrat;
   font-weight: 600;
   font-size: 20px;
 }
 
 .dropDown {
+  font-family: Montserrat;
   display: flex;
   justify-content: flex-end;
 }
