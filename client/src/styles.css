@@ -83,13 +83,12 @@ word-wrap: normal;
   font-weight: 600;
 }
 
-li{
-  font-family: Montserrat;
+.jli {
   margin-top: 10px;
+  display: list-item;
 }
 
-li:first-child {
-  font-family: Montserrat;
+.jli1 {
   margin-top:0;
 }
 
