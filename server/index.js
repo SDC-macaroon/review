@@ -13,32 +13,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/product/:productID', express.static(`${__dirname}/../public`));
-/*
-  * Finished *
-    Reviews
-      * Create One
-      * Read All
-
-  !Unfinished
-    Reviews
-      ! Create one
-      ! Update one
-      ! Delete One
-
-    Products
-      !  Create One
-      !  Read One
-      !  Update One
-      !  Delete One
-*/
 
 /* Fetch All Reviews for a Product */
 app.get('/reviews/:productID', async (req, res) => {
   const product = await db.reviews.read(req.params);
   res.status(200).send(product.reviews);
 });
-
 
 /* Create One Product Review */
 // ! Still needs to accept user review
@@ -92,6 +72,7 @@ app.get('/product/:productID', async (req, res) => {
 app.put('/products/:productID', async (req, res) => {
   // Update one product
 });
+
 
 /* Delete One Product  */
 // eslint-disable-next-line no-unused-vars
