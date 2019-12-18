@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
+/* DO NOT REMOVE */
+const db = require('./index.js'); // eslint-disable-line
 
 mongoose.Promise = global.Promise;
 
