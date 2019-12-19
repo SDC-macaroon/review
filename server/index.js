@@ -1,16 +1,12 @@
 const express = require('express');
 const faker = require('faker');
-<<<<<<< HEAD
+
 const _ = require('lodash');
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
 const db = require('./db/og-mongo/queries.js');
-=======
-
-const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
->>>>>>> Post works
 
 const app = express();
 
@@ -21,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 /* Fetch All Reviews for a Product */
 app.get('/reviews/:productID', async (req, res) => {
-<<<<<<< HEAD
   const product = await db.reviews.read(req.params);
   res.status(200).send(product.reviews);
 });
@@ -99,6 +94,7 @@ app.post('/reviews/:productID', async (req, res) => {
     reviewDate: new Date(),
   });
 
+<<<<<<< HEAD
   await ProductModel.updateOne({ productID }, { $push: { reviews: review } },
     (err, results) => {
       if (err) {
@@ -115,6 +111,14 @@ app.post('/reviews/:productID', async (req, res) => {
 // eslint-disable-next-line no-unused-vars
 app.put('/products/:productID', async (req, res) => {
   // Update one product
+=======
+  const product = await ProductModel
+    .findOne({ productID });
+  product.reviews.push(review);
+  await product.save();
+
+  res.status(200).send(product);
+>>>>>>> POST works, needs to verify author to prevent multiple reviews
 });
 
 
