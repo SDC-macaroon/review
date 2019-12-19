@@ -34,15 +34,12 @@ app.post('/reviews/:productID', async (req, res) => {
     reviewDate: new Date(),
   });
 
-  await ProductModel.updateOne({ productID }, { $push: { reviews: review } },
-    (err, results) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(results);
-      }
-    });
-  res.status(200).send(review);
+  const product = await ProductModel
+    .findOne({ productID });
+  product.reviews.push(review);
+  await product.save();
+
+  res.status(200).send(product);
 });
 
 /*
