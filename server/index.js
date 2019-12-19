@@ -1,20 +1,48 @@
 const express = require('express');
-const db = require('./index.js'); // eslint-disable-line
-const { fetch } = require('../database/Reviews.js');
-const { productModel, reviewModel } = require('../database/Reviews.js'); // eslint-disable-line
+const faker = require('faker');
+
+const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
 
 const app = express();
 app.use('/product/:productID', express.static(`${__dirname}/../public`));
 
 app.get('/reviews/:productID', async (req, res) => {
-  const productIdArray = await fetch(req.params.productID);
-  res.status(200).send(productIdArray[0].reviews);
+  const product = await ProductModel
+    .find({ productID: req.params.productID })
+    .exec();
+
+  res.status(200).send(product[0].reviews);
 });
+
+
+
 
 // Create
 app.post('/reviews/:productID', async (req, res) => {
-  const productIdArray = await fetch(req.params.productID);
-  res.status(200).send(productIdArray[0].reviews);
+  const { productID } = req.params;
+  let reviewID = await ProductModel
+    .find({ productID });
+  reviewID = reviewID[0].reviews.length;
+  console.log(reviewID);
+
+  const review = new ReviewModel({
+    reviewID,
+    rating: 4,
+    reviewTitle: 'THE BEST REVIEW',
+    reviewBody: faker.lorem.paragraph(),
+    reviewAuthor: 'Peter Barnum',
+    reviewDate: new Date(),
+  });
+
+  await ProductModel.updateOne({ productID }, { $push: { reviews: review } },
+    (err, results) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(results);
+      }
+    });
+  res.status(200).send(review);
 });
 
 /*
