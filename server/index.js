@@ -72,23 +72,20 @@ app.post('/reviews/:productID', async (req, res) => {
   }
 });
 
-// TODO *********************
-
-// TODO Reviews
 /* Fetch One Product Review */
-// eslint-disable-next-line no-unused-vars
 app.get('/review/:productID/:reviewID', async (req, res) => {
   const { productID, reviewID } = req.params;
   const product = await ProductModel
     .find({ productID });
   const { reviews } = product[0];
-
   const review = reviews[reviewID];
-
-
-
   res.status(200).send(review);
 });
+
+// TODO *********************
+
+// TODO Reviews
+
 
 /* Update One Product Review */
 // eslint-disable-next-line no-unused-vars
