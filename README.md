@@ -1,6 +1,4 @@
-# Project Name
-###### RedBobble Review/s
-
+# RedBobble Review/s
 ## Related Projects
 
   - [Product](https://github.com/SDC-macaroon/product)
