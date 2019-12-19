@@ -4,7 +4,8 @@ const db = require('./index.js'); // eslint-disable-line
 
 mongoose.Promise = global.Promise;
 
-const reviewSchema = new mongoose.Schema({
+const ReviewSchema = new mongoose.Schema({
+  reviewID: { type: Number, unique: true },
   rating: Number,
   reviewTitle: String,
   reviewBody: String,
@@ -12,15 +13,13 @@ const reviewSchema = new mongoose.Schema({
   reviewDate: Date,
 });
 
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   productID: { type: Number, unique: true },
-  reviews: [reviewSchema],
+  reviews: [ReviewSchema],
 });
 
-const productModel = mongoose.model('Product', productSchema);
+const ProductModel = mongoose.model('Product', ProductSchema);
 
-const fetch = prodId => productModel.find({ productID: prodId }).exec();
 
-module.exports.reviewModel = mongoose.model('Review', reviewSchema);
-module.exports.productModel = productModel;
-module.exports.fetch = fetch;
+module.exports.ReviewModel = mongoose.model('Review', ReviewSchema);
+module.exports.ProductModel = ProductModel;
