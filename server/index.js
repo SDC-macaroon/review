@@ -77,44 +77,44 @@ app.post('/reviews/:productID', async (req, res) => {
 // TODO Products
 /* Create One Product */
 // eslint-disable-next-line no-unused-vars
-app.post('/reviews/:productID', async (req, res) => {
-  // Accepts data from request
+app.post('/product/:productID', async (req, res) => {
+  //! Accepts data from request
 });
 
 /* Fetch One Product */
 // eslint-disable-next-line no-unused-vars
-app.get('/reviews/:productID', async (req, res) => {
+app.get('/product/:productID', async (req, res) => {
   // fetch entire product
 });
 
 /* Update One Product */
 // eslint-disable-next-line no-unused-vars
-app.put('/reviews/:productID', async (req, res) => {
+app.put('/products/:productID', async (req, res) => {
   // Update one product
 });
 
 /* Delete One Product  */
 // eslint-disable-next-line no-unused-vars
-app.delete('/reviews/:productID', async (req, res) => {
+app.delete('/products/:productID', async (req, res) => {
   // Delete one product
 });
 
 // TODO Reviews
 /* Fetch One Product Review */
 // eslint-disable-next-line no-unused-vars
-app.get('/reviews/:productID:reviewID', async (req, res) => {
+app.get('/review/:productID:reviewID', async (req, res) => {
 });
 
 /* Update One Product Review */
 // eslint-disable-next-line no-unused-vars
-app.put('/reviews/:productID:reviewID', async (req, res) => {
+app.put('/review/:productID:reviewID', async (req, res) => {
   // Accepts updated parameters
 });
 
 
 /* Delete One Product Review */
 // eslint-disable-next-line no-unused-vars
-app.delete('/reviews/:productID:reviewID', async (req, res) => {
+app.delete('/review/:productID:reviewID', async (req, res) => {
 });
 
 // OPTIONS
