@@ -4,6 +4,7 @@ const faker = require('faker');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const db = require('./db/og-mongo/queries.js');
 
 const port = process.env.PORT || 3002;
@@ -51,7 +52,6 @@ app.get('/review/:productID/:reviewID', async (req, res) => {
   const review = await db.review.read(req.params);
   res.status(200).send(review);
 });
-
 
 /*
   Update One Product Review

@@ -12,7 +12,6 @@ const validAuthor = (reviews, author) => {
   });
   return invalid;
 };
-
 const reviews = {
   read: async ({ productID }) => {
     const results = await ProductModel
