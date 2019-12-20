@@ -12,6 +12,7 @@ const validAuthor = (reviews, author) => {
   });
   return invalid;
 };
+
 const reviews = {
   read: async ({ productID }) => {
     const results = await ProductModel
@@ -56,15 +57,9 @@ const review = {
     const product = await ProductModel
       .findOne({ productID });
 
-    let index;
-    product.reviews.forEach((rev, i) => {
-      if (rev.reviewID === reviewID) {
-        index = i;
-      }
-    });
-    if (index !== undefined) {
-      product.reviews.splice(index, 1);
-    }
+    const index = await _.findIndex(product.reviews, rev => rev.reviewID !== reviewID);
+    await product.reviews.splice(index, 1);
+
     await product.save();
     return product;
   },

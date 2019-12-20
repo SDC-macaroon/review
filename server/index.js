@@ -5,6 +5,7 @@ const _ = require('lodash');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
 const db = require('./db/og-mongo/queries.js');
 
 const port = process.env.PORT || 3002;
@@ -56,6 +57,7 @@ app.get('/review/:productID/:reviewID', async (req, res) => {
 /*
   Update One Product Review
 */
+
 app.put('/review/:productID/:reviewID', async (req, res) => {
   const reviews = await db.review.update(req.params, req.body);
   res.status(200).send(reviews);
@@ -67,7 +69,7 @@ app.put('/review/:productID/:reviewID', async (req, res) => {
 app.delete('/review/:productID/:reviewID', async (req, res) => {
   const reviews = await db.review.delete(req.params);
   res.status(200).send(reviews);
-});
+
 
 /************************************
 * TODO:        PRODUCTS           ***
@@ -108,7 +110,6 @@ app.delete('/products/:productID', async (req, res) => {
 app.options('/reviews', async (req, res) => {
   // RESPOND WITH OPTIONS FOR ENDPOINTS
 });
-
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
 module.exports = app;
