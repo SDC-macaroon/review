@@ -1,7 +1,8 @@
 const express = require('express');
 const faker = require('faker');
 const _ = require('lodash');
-const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
+// const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
+const db = require('./db/og-mongo/queries.js');
 
 const app = express();
 app.use('/product/:productID', express.static(`${__dirname}/../public`));
@@ -26,11 +27,8 @@ app.use('/product/:productID', express.static(`${__dirname}/../public`));
 
 /* Fetch All Reviews for a Product */
 app.get('/reviews/:productID', async (req, res) => {
-  const product = await ProductModel
-    .find({ productID: req.params.productID })
-    .exec();
-
-  res.status(200).send(product[0].reviews);
+  const product = await db.reviews.read(req.params.productID);
+  res.status(200).send(product.reviews);
 });
 
 
@@ -38,38 +36,15 @@ app.get('/reviews/:productID', async (req, res) => {
 // ! Still needs to accept user review
 app.post('/reviews/:productID', async (req, res) => {
   const { productID } = req.params;
-  let reviews = await ProductModel
-    .find({ productID });
-
-  reviews = reviews[0].reviews;
-  const reviewID = reviews.length;
-
-  const review = new ReviewModel({
-    reviewID,
+  const review = {
     rating: 4,
     reviewTitle: 'THE BEST REVIEW',
     reviewBody: faker.lorem.paragraph(),
     reviewAuthor: 'Peter Barnum2',
     reviewDate: new Date(),
-  });
-  console.log('rev auth --> ', review.reviewAuthor);
-
-  // eslint-disable-next-line consistent-return
-  const invalid = _.find(reviews, ({ reviewAuthor }) => {
-    console.log(reviewAuthor);
-    if (reviewAuthor === review.reviewAuthor) {
-      return true;
-    }
-  });
-  if (invalid) {
-    res.status(405).send(reviews);
-  } else {
-    const product = await ProductModel
-      .findOne({ productID });
-    product.reviews.push(review);
-    await product.save();
-    res.status(200).send(product);
-  }
+  };
+  const reviews = await db.reviews.create(productID, review);
+  res.status(200).send(reviews);
 });
 
 /* Fetch One Product Review */
