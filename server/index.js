@@ -1,10 +1,18 @@
 const express = require('express');
 const faker = require('faker');
 const _ = require('lodash');
+
+const bodyParser = require('body-parser');
+const cors = require('cors');
 // const { ProductModel, ReviewModel } = require('../database/Reviews.js'); // eslint-disable-line
 const db = require('./db/og-mongo/queries.js');
 
 const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use('/product/:productID', express.static(`${__dirname}/../public`));
 /*
   * Finished *
@@ -27,7 +35,7 @@ app.use('/product/:productID', express.static(`${__dirname}/../public`));
 
 /* Fetch All Reviews for a Product */
 app.get('/reviews/:productID', async (req, res) => {
-  const product = await db.reviews.read(req.params.productID);
+  const product = await db.reviews.read(req.params);
   res.status(200).send(product.reviews);
 });
 
@@ -35,43 +43,36 @@ app.get('/reviews/:productID', async (req, res) => {
 /* Create One Product Review */
 // ! Still needs to accept user review
 app.post('/reviews/:productID', async (req, res) => {
-  const { productID } = req.params;
-  const review = {
-    rating: 4,
-    reviewTitle: 'THE BEST REVIEW',
-    reviewBody: faker.lorem.paragraph(),
-    reviewAuthor: 'Peter Barnum2',
-    reviewDate: new Date(),
-  };
-  const reviews = await db.reviews.create(productID, review);
+  const reviews = await db.reviews.create(req.params, req.body);
   res.status(200).send(reviews);
 });
 
 /* Fetch One Product Review */
 app.get('/review/:productID/:reviewID', async (req, res) => {
-  const { productID, reviewID } = req.params;
-  const product = await ProductModel
-    .find({ productID });
-  const { reviews } = product[0];
-  const review = reviews[reviewID];
+  const review = await db.review.read(req.params);
   res.status(200).send(review);
+});
+
+/* Create One Product Review */
+app.post('/review/:productID', async (req, res) => {
+  const reviews = await db.reviews.create(req.params, req.body);
+  res.status(200).send(reviews);
+});
+
+/* Update One Product Review */
+// eslint-disable-next-line no-unused-vars
+app.put('/review/:productID/:reviewID', async (req, res) => {
+  const reviews = await db.review.update(req.params, req.body);
+  res.status(200).send(reviews);
 });
 
 // TODO *********************
 
-// TODO Reviews
-
-
-/* Update One Product Review */
-// eslint-disable-next-line no-unused-vars
-app.put('/review/:productID:reviewID', async (req, res) => {
-  // Accepts updated parameters
-});
-
-
 /* Delete One Product Review */
 // eslint-disable-next-line no-unused-vars
-app.delete('/review/:productID:reviewID', async (req, res) => {
+app.delete('/review/:productID/:reviewID', async (req, res) => {
+  const reviews = await db.review.delete(req.params);
+  res.status(200).send(reviews);
 });
 // TODO Products
 /* Create One Product */
@@ -108,3 +109,5 @@ app.options('/reviews', async (req, res) => {
 const port = process.env.PORT || 3002;
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
+
+module.exports = app;
