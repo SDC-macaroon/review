@@ -53,25 +53,13 @@ const review = {
     await product.save();
     return product;
   },
+
+  // TODO DELETE REVIEW
   delete: async ({ productID, reviewID }) => {
     const product = await ProductModel
       .findOne({ productID });
-
-<<<<<<< HEAD
     const index = await _.findIndex(product.reviews, rev => rev.reviewID !== reviewID);
     await product.reviews.splice(index, 1);
-
-=======
-    let index;
-    product.reviews.forEach((rev, i) => {
-      if (rev.reviewID === reviewID) {
-        index = i;
-      }
-    });
-    if (index !== undefined) {
-      product.reviews.splice(index, 1);
-    }
->>>>>>> Wanted to comit whats here before submiting my data gen script
     await product.save();
     return product;
   },

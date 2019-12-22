@@ -4,8 +4,6 @@ const faker = require('faker');
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-
 const db = require('./db/og-mongo/queries.js');
 
 const port = process.env.PORT || 3002;
@@ -15,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/product/:productID', express.static(`${__dirname}/../public`));
+
 
 /************************************
 ***             REVIEWS           ***
@@ -30,6 +29,7 @@ app.post('/reviews/:productID', async (req, res) => {
 /*
   Read All Reviews for a Product
 */
+
 app.get('/reviews/:productID', async (req, res) => {
   const product = await db.reviews.read(req.params);
   res.status(200).send(product.reviews);
@@ -42,6 +42,7 @@ app.get('/reviews/:productID', async (req, res) => {
   Create One Product Review
 */
 app.post('/review/:productID', async (req, res) => {
+
   const reviews = await db.reviews.create(req.params, req.body);
   res.status(200).send(reviews);
 });
@@ -49,6 +50,7 @@ app.post('/review/:productID', async (req, res) => {
 /*
   Read One Product Review
 */
+
 app.get('/review/:productID/:reviewID', async (req, res) => {
   const review = await db.review.read(req.params);
   res.status(200).send(review);
@@ -57,7 +59,6 @@ app.get('/review/:productID/:reviewID', async (req, res) => {
 /*
   Update One Product Review
 */
-
 app.put('/review/:productID/:reviewID', async (req, res) => {
   const reviews = await db.review.update(req.params, req.body);
   res.status(200).send(reviews);
@@ -112,4 +113,5 @@ app.options('/reviews', async (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
+
 module.exports = app;
