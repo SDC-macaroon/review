@@ -2,7 +2,7 @@
 /* eslint-disable new-cap */
 const faker = require('faker');
 const mongoose = require('mongoose');
-const { ProductModel, ReviewModel } = require('./Reviews.js');
+const { ProductModel, ReviewModel } = require('./schemas.js');
 
 mongoose.connection.collections.products.drop().catch(() => 1 + 1);
 
