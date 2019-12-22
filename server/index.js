@@ -36,7 +36,6 @@ app.get('/reviews/:productID', async (req, res) => {
 /************************************
 ***             REVIEW            ***
 *************************************/
-
 /*
   Create One Product Review
 */
@@ -72,9 +71,8 @@ app.delete('/review/:productID/:reviewID', async (req, res) => {
 /************************************
 * TODO:        PRODUCTS           ***
 *************************************/
-
 /*
-TODO:  Create One Product
+  TODO:  Create One Product
 */
 app.post('/products/:productID', async (req, res) => {
   // CREATE ONE PRODUCT
@@ -82,15 +80,13 @@ app.post('/products/:productID', async (req, res) => {
 });
 
 /*
-TODO:  Read One Product
+  TODO:  Read One Product
 */
 app.get('/products/:productID', async (req, res) => {
   //  READ ONE PRODUCT
     //  ACCEPTS PRODUCT ID
-});
-
 /*
-TODO:  Update One Product
+  TODO:  Update One Product
 */
 app.put('/products/:productID', async (req, res) => {
   //  UPDATE ONE PRODUCT
@@ -98,19 +94,18 @@ app.put('/products/:productID', async (req, res) => {
 });
 
 /*
-TODO:  Delete One Product
+  TODO:  Delete One Product
 */
 app.delete('/products/:productID', async (req, res) => {
   //  DELETE ONE PRODUCT
     //  ACCEPTS PRODUCT ID
-});
-
 
 /************************************
 * TODO:        OPTIONS            ***
 *************************************/
 /* Delete One Product Review */
 app.options('/reviews', async (req, res) => {
+  // RESPOND WITH OPTIONS FOR ENDPOINTS
 });
 
 
