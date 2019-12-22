@@ -70,7 +70,7 @@ app.put('/review/:productID/:reviewID', async (req, res) => {
 app.delete('/review/:productID/:reviewID', async (req, res) => {
   const reviews = await db.review.delete(req.params);
   res.status(200).send(reviews);
-
+});
 
 /************************************
 * TODO:        PRODUCTS           ***
@@ -89,6 +89,8 @@ app.post('/products/:productID', async (req, res) => {
 app.get('/products/:productID', async (req, res) => {
   //  READ ONE PRODUCT
     //  ACCEPTS PRODUCT ID
+
+});
 /*
   TODO:  Update One Product
 */
@@ -103,11 +105,11 @@ app.put('/products/:productID', async (req, res) => {
 app.delete('/products/:productID', async (req, res) => {
   //  DELETE ONE PRODUCT
     //  ACCEPTS PRODUCT ID
+});
 
 /************************************
 * TODO:        OPTIONS            ***
 *************************************/
-/* Delete One Product Review */
 app.options('/reviews', async (req, res) => {
   // RESPOND WITH OPTIONS FOR ENDPOINTS
 });
