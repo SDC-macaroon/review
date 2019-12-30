@@ -5,6 +5,8 @@ const _ = require('lodash');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db/og-mongo/queries.js');
+// const db = require('./db/cassandra');
+// const db = require('./db/postgres');
 
 const port = process.env.PORT || 3002;
 const app = express();
